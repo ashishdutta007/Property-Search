@@ -4,7 +4,7 @@ const initialState = {
   testItems: [],
 };
 
-// reducers is a function that returns a new state
+// reducers is a function that modifies and returns the new state
 export default function (state = initialState, action) {
   switch (action.type) {
     case NEW_ACTION_TYPE:
