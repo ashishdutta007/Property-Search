@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapActionToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     randomTestAction: () => {
       dispatch(randomTestAction());
@@ -50,8 +50,9 @@ const mapActionToProps = (dispatch) => {
 }
 
 // It connects the Component to the redux-store passed by the Provider 
-// connect() from react-redux args takes state & actions and 
-// returns a HOC with the state and action as props 
+// connect()() from react-redux args takes state & actions and 
+// connect()()  returns a HOC with the state and action as props
+// we can pass mapDispatchToProps as a function or an object
 
-// export default connect(mapStateToProps, mapActionToProps)(TestContainer);
+// export default connect(mapStateToProps, mapDispatchToProps)(TestContainer);
 export default connect(mapStateToProps, { randomTestAction })(TestContainer);
