@@ -5,7 +5,7 @@ import { randomTestAction } from '../actions/testActions';
 
 class TestContainer extends Component {
   constructor(props) {
-    super.props();
+    super(props);
     this.state = {};
   }
 
