@@ -15,8 +15,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <PropertyFilters type="rent" min={0} max={50000} />
-          <PropertyFilters type="area" min={0} max={5000} />
+          <PropertyFilters />
         </header>
         <ListingPage />
       </div>

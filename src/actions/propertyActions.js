@@ -1,4 +1,5 @@
 import { FETCH_ALL_PROPERTIES, SET_FILTERED_PROPERTIES } from './actionTypes';
+import _ from 'lodash';
 
 export function fetchAllProperties() {
   return (dispatch) => {
@@ -15,7 +16,7 @@ export function fetchAllProperties() {
 
 export function filterProperties(payload) {
   return (dispatch, getState) => {
-    const properties = payload.properties;
+    const properties = payload.properties || getState().properties.properties;
     let filteredProperties = [];
 
     // individual filters, not combined
@@ -30,18 +31,28 @@ export function filterProperties(payload) {
           return prop.propertySize >= parseInt(payload.criteria[0]) && prop.propertySize <= parseInt(payload.criteria[1]);
         });
         break;
-      default: 
+      case "withphotos":
+        filteredProperties = properties.filter((prop) => {
+          return prop.photoAvailable;
+        });
+        break;
+      case "":
+        filteredProperties = properties;
+        break;
+      default:
         break;
     }
-
     dispatch({ type: SET_FILTERED_PROPERTIES, payload: filteredProperties });
   };
 }
 
-export function sortProperties(criteria) {
-
-}
-
-export function resetFilters(criteria) {
-
+export function sortProperties(payload) {
+  return (dispatch, getState) => {
+    let properties = payload.properties || getState().properties.properties;
+    let filteredProperties = _.cloneDeep(properties);
+    filteredProperties.sort((a, b) => {
+      return payload ? a.rent - b.rent : b.rent - a.rent;
+    });
+    dispatch({ type: SET_FILTERED_PROPERTIES, payload: filteredProperties });
+  };
 }

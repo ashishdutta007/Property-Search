@@ -10,12 +10,11 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 20vh;
+  min-height: 10vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -34,6 +33,23 @@
 }
 
 /* Application css */
+
+.display-flex {
+  display: flex;
+  flex-direction: row
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.filter-container {
+  justify-content: space-around;
+}
+
+.filter-container div {
+  align-items: center;
+}
 
 .grid-container {
   display: flex;
@@ -68,9 +84,27 @@
 }
 
 .rc-slider {
-  width: 250px !important;
+  width: 200px !important;
 }
 
 .rc-slider-track {
   background-color: #fd3753 !important;
+}
+
+#photoAvailable {
+  margin: 10px 20px;
+  height: 20px;
+  width: 30px;
+}
+
+.reset-btn {
+  height: 30px;
+  width: 200px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 20px;
+  background-color: #fd3753;
+  color: #fff;
+  border: none;
 }
