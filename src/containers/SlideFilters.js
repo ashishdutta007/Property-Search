@@ -6,7 +6,7 @@ import { filterProperties } from '../actions/propertyActions';
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const Range = createSliderWithTooltip(Slider.Range);
 
-class PropertyFilters extends Component {
+class SlideFilters extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,4 +39,4 @@ class PropertyFilters extends Component {
 
 
 
-export default connect(null, { filterProperties })(PropertyFilters);
+export default connect(null, { filterProperties })(SlideFilters);
