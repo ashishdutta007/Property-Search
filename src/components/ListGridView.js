@@ -19,11 +19,11 @@ export default class ListGridView extends Component {
 
   render() {
     return (
-      <div className="grid-container">
+      <div className="grid-container" onScroll={this.props.handleInfiniteScroll}>
         {
-          this.props.filteredProperties.map((item) => {
+          this.props.filteredProperties.map((item, index) => {
             return (
-              <div className="grid-item" key={item.id}>
+              <div className="grid-item" key={index}>
                 <div className="image-container">
                   <img className="prop-image" onError={this.handleImageError} src={this.setImage(item)} alt="property" />
                 </div>

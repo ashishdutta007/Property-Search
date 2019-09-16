@@ -14,10 +14,19 @@ class ListingPage extends Component {
     this.props.fetchAllProperties();
   }
 
+  handleInfiniteScroll(e) {
+    console.log(e);
+    const targetEl = e.target;
+    if (targetEl.scrollTop + targetEl.clientHeight >= targetEl.scrollHeight) {
+      this.props.fetchAllProperties();
+    }
+  }
+
   render() {
     return (
       <div>
-        <ListGridView properties={this.props.properties} filteredProperties={this.props.filteredProperties}/>
+        <ListGridView properties={this.props.properties} filteredProperties={this.props.filteredProperties}
+          handleInfiniteScroll={this.handleInfiniteScroll.bind(this)} />
       </div>
     );
   }
